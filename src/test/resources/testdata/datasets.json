@@ -1,0 +1,23 @@
+[
+  {
+    "name": "John Doe",
+    "email": "johndoe12345@testmail.com",
+    "password": "SecurePassword123!",
+    "dob": {
+      "day": "15",
+      "month": "June",
+      "year": "1990"
+    },
+    "firstName": "John",
+    "lastName": "Doe",
+    "company": "Test Company Ltd",
+    "address": "123 Test Street",
+    "address2": "Apartment 4B",
+    "country": "United States",
+    "state": "California",
+    "city": "Los Angeles",
+    "zipcode": "90001",
+    "mobileNumber": "1234567890"
+  }
+]
+

@@ -1,0 +1,42 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="UI Test Suite" verbose="2" configfailurepolicy="continue">
+    
+    <!-- Test Listeners for reporting -->
+    <listeners>
+        <listener class-name="utils.TestListeners"/>
+    </listeners>
+    
+    <!-- UI Tests - Run sequentially for browser isolation -->
+    <test name="Registration UI Tests" preserve-order="true">
+        <parameter name="browser" value="chromium"/>
+        <classes>
+            <class name="tests.ui.RegistrationUITests">
+                <methods>
+                    <!-- Run specific test methods in order -->
+                    <include name="testValidRegistration"/>
+                    <include name="testDuplicateEmailRegistration"/>
+                    <include name="testInvalidRegistration"/>
+                    <include name="testSpecialCharactersInName"/>
+                    <include name="testCompleteRegistrationFlow"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    
+    <test name="Login UI Tests" preserve-order="true">
+        <parameter name="browser" value="chromium"/>
+        <classes>
+            <class name="tests.ui.LoginUITests">
+                <methods>
+                    <!-- Run specific test methods in order -->
+                    <include name="testValidLogin"/>
+                    <include name="testInvalidLogin"/>
+                    <include name="testWrongPassword"/>
+                    <include name="testLoginPersistence"/>
+                    <include name="testMultipleFailedAttempts"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    
+</suite>

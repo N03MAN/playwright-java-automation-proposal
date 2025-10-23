@@ -83,8 +83,10 @@ public class LoginPage {
      */
     public boolean verifyLoginSuccess(String username) {
         try {
-            String loggedInText = page.locator("a:has-text('Logged in as')").textContent();
-            return loggedInText != null && loggedInText.contains(username);
+            // Use text locator to find "Logged in as {username}" - matches TypeScript implementation
+            String expectedText = "Logged in as " + username;
+            String loggedInText = page.locator("text=" + expectedText).textContent();
+            return loggedInText != null && loggedInText.contains(expectedText);
         } catch (Exception e) {
             return false;
         }
@@ -96,7 +98,8 @@ public class LoginPage {
      */
     public boolean verifyLoginFailure() {
         try {
-            return page.locator("text=Your email or password is incorrect").isVisible();
+            // Matches TypeScript: "text=Your email or password is"
+            return page.locator("text=Your email or password is").isVisible();
         } catch (Exception e) {
             return false;
         }

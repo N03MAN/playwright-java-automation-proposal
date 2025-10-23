@@ -1,5 +1,14 @@
 [
   {
+    "email": "validuser@testmail.com",
+    "validPassword": "SecurePass123!",
+    "invalidPassword": "wrongpass",
+    "name": "John Doe",
+    "expectedStatus": 200,
+    "expectedResult": "success",
+    "description": "Valid credentials - successful login"
+  },
+  {
     "email": "invalid@testmail.com",
     "password": "wrong",
     "expectedStatus": 200,

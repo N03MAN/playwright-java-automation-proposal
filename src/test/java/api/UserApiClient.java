@@ -29,10 +29,29 @@ public class UserApiClient {
      * @return RestAssured Response object containing status code, headers, and body
      */
     public Response register(String name, String email, String password) {
+        // Extract first and last name from full name
+        String[] nameParts = name.split(" ", 2);
+        String firstName = nameParts.length > 0 ? nameParts[0] : name;
+        String lastName = nameParts.length > 1 ? nameParts[1] : "User";
+        
         Response res = RestAssured.given()
             .formParam("name", name)
             .formParam("email", email)
             .formParam("password", password)
+            .formParam("title", "Mr")
+            .formParam("birth_date", "1")
+            .formParam("birth_month", "1")
+            .formParam("birth_year", "1990")
+            .formParam("firstname", firstName)
+            .formParam("lastname", lastName)
+            .formParam("company", "TestCompany")
+            .formParam("address1", "123 Test Street")
+            .formParam("address2", "Apt 1")
+            .formParam("country", "United States")
+            .formParam("zipcode", "12345")
+            .formParam("state", "California")
+            .formParam("city", "Los Angeles")
+            .formParam("mobile_number", "1234567890")
             .post("/api/createAccount");
         attach(res);
         return res;

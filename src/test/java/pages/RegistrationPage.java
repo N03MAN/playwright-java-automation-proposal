@@ -75,6 +75,42 @@ public class RegistrationPage {
         page.locator("#zipcode").fill("A1A1A1");
         page.locator("#mobile_number").fill("+1234567890");
     }
+    
+    /**
+     * Fills all account details from dataset (matches TypeScript implementation)
+     * @param details Map containing all registration details
+     */
+    @SuppressWarnings("unchecked")
+    public void fillAccountDetailsFromData(java.util.Map<String, Object> details) {
+        // Title (Gender)
+        page.locator("input[id='id_gender1']").check();
+        
+        // Name and Password
+        page.locator("input[name='name']").fill((String) details.get("name"));
+        page.locator("input[name='password']").fill((String) details.get("password"));
+        
+        // Date of Birth
+        java.util.Map<String, Object> dob = (java.util.Map<String, Object>) details.get("dob");
+        page.locator("#days").selectOption((String) dob.get("day"));
+        page.locator("#months").selectOption((String) dob.get("month"));
+        page.locator("#years").selectOption((String) dob.get("year"));
+        
+        // Checkboxes
+        page.locator("input[name='newsletter']").check();
+        page.locator("input[name='optin']").check();
+        
+        // Additional details
+        page.locator("input[name='first_name']").fill((String) details.get("firstName"));
+        page.locator("input[name='last_name']").fill((String) details.get("lastName"));
+        page.locator("input[name='company']").fill((String) details.get("company"));
+        page.locator("input[name='address1']").fill((String) details.get("address"));
+        page.locator("input[name='address2']").fill((String) details.get("address2"));
+        page.locator("#country").selectOption((String) details.get("country"));
+        page.locator("input[name='state']").fill((String) details.get("state"));
+        page.locator("input[name='city']").fill((String) details.get("city"));
+        page.locator("input[name='zipcode']").fill((String) details.get("zipcode"));
+        page.locator("input[name='mobile_number']").fill((String) details.get("mobileNumber"));
+    }
 
     /**
      * Submits the account creation form
@@ -90,7 +126,18 @@ public class RegistrationPage {
      */
     public boolean isAccountCreated() {
         try {
-            return page.locator("h2[data-qa='account-created']").or(page.locator("text=Account Created!")).isVisible();
+            // Multiple ways to detect account creation success
+            // 1. Check URL - most reliable
+            if (page.url().contains("/account_created")) {
+                return true;
+            }
+            
+            // 2. Check for success heading (various formats the site might use)
+            return page.locator("h2[data-qa='account-created']").isVisible() ||
+                   page.locator("text=ACCOUNT CREATED!").isVisible() ||
+                   page.locator("text=Account Created!").isVisible() ||
+                   page.locator("h2:has-text('Account Created')").isVisible() ||
+                   page.locator("b:has-text('ACCOUNT CREATED')").isVisible();
         } catch (Exception e) {
             return false;
         }
