@@ -1,0 +1,54 @@
+# SonarLint Ignore File
+# Files and directories to exclude from SonarLint analysis
+
+# Build directories
+target/
+build/
+out/
+
+# Test data files
+*.json
+*.csv
+*.xlsx
+
+# Configuration files
+*.xml
+*.yml
+*.yaml
+*.properties
+
+# Documentation
+*.md
+*.txt
+
+# Scripts
+*.sh
+*.bat
+
+# IDE files
+.idea/
+.vscode/
+*.iml
+
+# Generated files
+**/generated/**
+**/generated-sources/**
+**/generated-test-sources/**
+
+# Dependencies
+node_modules/
+.mvn/
+
+# Temporary files
+*.log
+*.tmp
+*.temp
+
+# Docker files
+Dockerfile
+.dockerignore
+
+# Git files
+.git/
+.gitignore
+.gitattributes

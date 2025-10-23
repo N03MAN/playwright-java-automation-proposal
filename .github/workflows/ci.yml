@@ -32,9 +32,16 @@ jobs:
       - name: Install Playwright browsers
         run: mvn exec:java -e -D exec.mainClass=com.microsoft.playwright.CLI -D exec.args="install --with-deps chromium"
       
-      - name: Run tests with Maven
-        run: mvn clean test
+      - name: Run tests with Maven and Coverage
+        run: mvn clean test jacoco:report
         continue-on-error: true
+      
+      - name: Upload JaCoCo Coverage Report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: jacoco-report
+          path: target/site/jacoco/
       
       - name: Upload Allure Results
         if: always()
