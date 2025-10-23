@@ -1,0 +1,41 @@
+# Git
+.git
+.gitignore
+
+# IDE
+.idea/
+*.iml
+*.iws
+*.ipr
+.vscode/
+.settings/
+.project
+.classpath
+
+# Build artifacts
+target/
+out/
+bin/
+
+# Test results
+allure-results/
+allure-report/
+test-results/
+screenshots/
+videos/
+traces/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Don't copy local .env, we'll handle it in Dockerfile
+.env
+
+# Documentation
+README.md
+*.md
+

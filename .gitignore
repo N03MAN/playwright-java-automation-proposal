@@ -1,0 +1,58 @@
+# Environment variables
+.env
+
+# Maven
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+buildNumber.properties
+.mvn/timing.properties
+.mvn/wrapper/maven-wrapper.jar
+
+# IntelliJ IDEA
+.idea/
+*.iml
+*.iws
+*.ipr
+out/
+
+# Eclipse
+.project
+.classpath
+.settings/
+bin/
+
+# VS Code
+.vscode/
+
+# macOS
+.DS_Store
+
+# Allure
+allure-results/
+allure-report/
+
+# Logs
+*.log
+
+# Playwright
+playwright/.cache/
+test-results/
+screenshots/
+videos/
+traces/
+
+# Cursor/IDE specific files (not needed in repo)
+.specstory/
+.cursorindexingignore
+.cursorrules
+git-push-all.sh
+push-to-github.sh
+
+# Old reference implementation
+Get-Started-Playwright-main/
+

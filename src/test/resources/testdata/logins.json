@@ -1,0 +1,30 @@
+[
+  {
+    "email": "invalid@testmail.com",
+    "password": "wrong",
+    "expectedStatus": 200,
+    "expectedResult": "failure",
+    "description": "Invalid credentials - both email and password wrong"
+  },
+  {
+    "email": "",
+    "password": "password123",
+    "expectedStatus": 200,
+    "expectedResult": "failure",
+    "description": "Empty email field"
+  },
+  {
+    "email": "test@test.com",
+    "password": "",
+    "expectedStatus": 200,
+    "expectedResult": "failure",
+    "description": "Empty password field"
+  },
+  {
+    "email": "not-an-email",
+    "password": "password123",
+    "expectedStatus": 200,
+    "expectedResult": "failure",
+    "description": "Invalid email format"
+  }
+]

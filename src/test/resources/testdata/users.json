@@ -1,0 +1,23 @@
+[
+  {
+    "name": "John Doe",
+    "email": "<generated>",
+    "password": "Passw0rd!",
+    "expectedOutcome": "success",
+    "description": "Valid user registration with all required fields"
+  },
+  {
+    "name": "Jane Smith",
+    "email": "<generated>",
+    "password": "SecurePass123!",
+    "expectedOutcome": "success",
+    "description": "Valid registration with different password format"
+  },
+  {
+    "name": "Test User 123",
+    "email": "<generated>",
+    "password": "MyTestPassword99",
+    "expectedOutcome": "success",
+    "description": "Valid registration with numbers in name"
+  }
+]
