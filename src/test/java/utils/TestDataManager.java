@@ -100,8 +100,8 @@ public class TestDataManager {
                 Object value = field.getValue();
                 
                 // Process string placeholders
-                if (value instanceof String) {
-                    value = processStringPlaceholder((String) value);
+                if (value instanceof String string) {
+                    value = processStringPlaceholder(string);
                 }
                 
                 processedEntry.put(field.getKey(), value);
